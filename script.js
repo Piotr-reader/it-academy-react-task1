@@ -1,20 +1,25 @@
-const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let a = "A";
 let b = "F";
-let sortArray = [];
+let arr = [];
 let count = 0;
 
 const REG_FUNC = (arg1, arg2) => {
-  for (let i = 0; i < ALPHABET.length; i++) {
-    if (ALPHABET[i].charCodeAt() >= arg1.charCodeAt() && ALPHABET[i].charCodeAt() <= arg2.charCodeAt()) {
-      sortArray.push(ALPHABET[i]);
+  let i = arg1.charCodeAt();
+  let c = arg2.charCodeAt();
+  if (i < c) {
+    for (; i <= c; i++) {
+      arr.push(i);
+    }
+  } else {
+    for (; i >= c; i++) {
+      arr.push(i);
     }
   }
 };
 REG_FUNC(a, b);
 const intervalId = setInterval(function () {
-  if (count < sortArray.length) {
-    console.log(sortArray[count]);
+  if (count < arr.length) {
+    console.log(String.fromCharCode(arr[count]));
     count++;
   }
 }, 1000);

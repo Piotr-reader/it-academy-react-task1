@@ -1,25 +1,13 @@
-let a = "A";
-let b = "F";
-let arr = [];
-let count = 0;
-
-const REG_FUNC = (arg1, arg2) => {
-  let i = arg1.charCodeAt();
-  let c = arg2.charCodeAt();
-  if (i < c) {
-    for (; i <= c; i++) {
-      arr.push(i);
+function regFunc(a, b) {
+  let arr = [];
+  arr.push(a.charCodeAt());
+  arr.push(b.charCodeAt());
+  arr = arr.sort((a, b) => a - b);
+  setInterval(() => {
+    if (arr[0] <= arr[1]) {
+      console.log(String.fromCharCode(arr[0]));
+      arr[0]++;
     }
-  } else {
-    for (; i >= c; i++) {
-      arr.push(i);
-    }
-  }
-};
-REG_FUNC(a, b);
-const intervalId = setInterval(function () {
-  if (count < arr.length) {
-    console.log(String.fromCharCode(arr[count]));
-    count++;
-  }
-}, 1000);
+  }, 1000);
+}
+regFunc("A", "F");

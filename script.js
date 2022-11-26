@@ -1,12 +1,17 @@
-function regFunc(a, b) {
-  let arr = [];
-  arr.push(a.charCodeAt());
-  arr.push(b.charCodeAt());
-  arr = arr.sort((a, b) => a - b);
+function regFunc(arg1, arg2) {
+  let a;
+  let b;
+  if (arg1.charCodeAt() < arg2.charCodeAt()) {
+    a = arg1.charCodeAt();
+    b = arg2.charCodeAt();
+  } else {
+    a = arg2.charCodeAt();
+    b = arg1.charCodeAt();
+  }
   setInterval(() => {
-    if (arr[0] <= arr[1]) {
-      console.log(String.fromCharCode(arr[0]));
-      arr[0]++;
+    if (a <= b) {
+      console.log(String.fromCharCode(a));
+      a++;
     }
   }, 1000);
 }
